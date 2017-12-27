@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+
+/**
+ * Created by punkLee on 17/10/24.
+ */
+
+@font-face {
+    font-family: 'iconfont';  /* project id 377935 */
+    src: url('//at.alicdn.com/t/font_377935_cbbvsiqoezv9529.eot');
+    src: url('//at.alicdn.com/t/font_377935_cbbvsiqoezv9529.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_377935_cbbvsiqoezv9529.woff') format('woff'),
+    url('//at.alicdn.com/t/font_377935_cbbvsiqoezv9529.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_377935_cbbvsiqoezv9529.svg#iconfont') format('svg');
+}
+*{
+    user-select: none;
+}
+main.elevator-wrap{
+    position: absolute;
+    margin: auto;
+    top: 0; right: 0; bottom: 0; left: 0;
+    width: 463px;
+    height: 840px;
+    border: 5px solid black;
+}
+/*左侧部分*/
+.elevator-box{
+    width: 260px;
+    height: 840px;
+    border-right: 3px solid black;
+}
+
+.elevator{
+    position: absolute;
+    bottom: 0;
+}
+.elevator-box .img{
+    width: 260px;
+    height: 140px;
+    background: url("../img/timg.jpeg") center center no-repeat;
+    background-size: cover;
+}
+.elevator-box .door{
+    width: 260px;
+    height: 140px;
+    overflow: hidden;
+    display: flex;
+
+    position: absolute;
+    top: 0;
+}
+.left-door, .right-door{
+    background: #360814;
+    width: 130px;
+    height: 140px;
+    box-sizing: border-box;
+}
+.left-door{
+    border-right: 3px solid black;
+}
+.right-door{
+    border-left: 3px solid black;
+}
+
+
+/*右侧部分*/
+.floor-box{
+    width: 200px;
+    height: 840px;
+}
+.floor{
+    width: 200px;
+    height: 140px;
+    box-sizing: border-box;
+    border-bottom: 3px solid black;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.floor:last-child{
+    border: 0;
+}
+.up, .down{
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+.up:not(.no-use):active, .down:not(.no-use):active{
+    box-shadow: 0 2px 2px 2px gray;
+    background: black;
+    color: white;
+}
+.up{
+    margin-bottom: 5px;
+}
+.down{
+    margin-top: 5px;
+}
+.up-down i{
+    font:normal normal 30px "iconfont";
+    line-height: 50px;
+}
+.down i{
+    display: block;
+    transform: rotateZ(180deg);
+}
+.number{
+    font:normal normal 55px "宋体";
+}
+.no-use{
+    background: #5a5a5a;
+    color: white;
+}
+.elevator.move{
+    animation: elevator 1s ease-in-out 1;
+}
+
+.left-door.open-close{
+    animation: leftDoorOpen 1s ease-in-out 1;
+}
+.right-door.open-close{
+    animation: rightDoorOpen 1s ease-in-out 1;
+}
+
+.active{
+    background: black;
+    color: white;
+}
+/*动画效果*/
+
+
+/*2.电梯开关门效果*/
+@keyframes leftDoorOpen{
+    0%  {transform: translateX(0);}
+    50% {transform: translateX(-130px);}
+    100% {transform: translateX(0);}
+}
+
+@keyframes rightDoorOpen{
+    0%  {transform: translateX(0);}
+    50% {transform: translateX(130px);}
+    100% {transform: translateX(0);}
+}
